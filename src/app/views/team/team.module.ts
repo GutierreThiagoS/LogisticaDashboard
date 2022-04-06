@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { PerformanceComponent } from './performance/performance.component';
+import { WorkersComponent } from './workers/workers.component';
+
+import { TeamRoutingModule } from './team-routing.module';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 import {
@@ -12,23 +18,27 @@ import {
   NavModule,
   ProgressModule,
   TableModule,
-  TabsModule
+  TabsModule,
+  BadgeModule
 } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './dashboard.component';
 
 
 @NgModule({
+  declarations: [
+    PerformanceComponent,
+    WorkersComponent
+  ],
   imports: [
-    DashboardRoutingModule,
+    CommonModule,
+    TeamRoutingModule,
+
     CardModule,
     NavModule,
     IconModule,
     TabsModule,
-    CommonModule,
     GridModule,
     ProgressModule,
     ReactiveFormsModule,
@@ -38,9 +48,8 @@ import { DashboardComponent } from './dashboard.component';
     ButtonGroupModule,
     ChartjsModule,
     AvatarModule,
-    TableModule
-  ],
-  declarations: [DashboardComponent]
+    TableModule,
+    BadgeModule
+  ]
 })
-export class DashboardModule {
-}
+export class TeamModule { }

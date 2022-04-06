@@ -1,24 +1,24 @@
 <!--sidebar-->
 <c-sidebar
   #sidebar="cSidebar"
-  class="d-print-none sidebar sidebar-fixed"
+  class="d-print-none sidebar sidebar-fixed sidebar-custom"
   id="sidebar"
   visible
 >
   <c-sidebar-brand
     [brandFull]="{
-      src: 'assets/img/brand/coreui-pro-angular-white.svg',
+      src: 'assets/logo-jleiman.png',
       width: 190,
-      height: 35,
-      alt: 'CoreUI Logo'
+      height: 80,
+      alt: 'jleiman'
     }"
     [brandNarrow]="{
-      src: 'assets/img/brand/coreui-signet-white.svg',
+      src: 'assets/logo-jleiman.png',
       width: 46,
       height: 46,
-      alt: 'CoreUI Logo'
+      alt: 'jleiman'
     }"
-    routerLink="./"
+    routerLink="./dashboard"
   >
   </c-sidebar-brand>
     <perfect-scrollbar [config]="perfectScrollbarConfig">

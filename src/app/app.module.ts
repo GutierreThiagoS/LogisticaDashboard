@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http'
+import { LoginModule } from './views/login/login.module';
 
 import {
   PERFECT_SCROLLBAR_CONFIG,
@@ -45,6 +48,7 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { TeamModule } from './views/team/team.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -57,11 +61,15 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS],
+  declarations: [
+    AppComponent, ...APP_CONTAINERS
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
+    
     AvatarModule,
     BreadcrumbModule,
     FooterModule,
@@ -85,6 +93,9 @@ const APP_CONTAINERS = [
     BadgeModule,
     ListGroupModule,
     CardModule,
+    HttpClientModule,
+    LoginModule,
+    TeamModule
   ],
   providers: [
     {

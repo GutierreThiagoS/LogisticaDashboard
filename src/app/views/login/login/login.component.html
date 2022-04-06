@@ -1,0 +1,35 @@
+<div class="background_login">
+</div>
+
+<div class="">
+  <h4>J. Sleiman</h4>
+</div>
+
+<div class="container login"> 
+
+  <br>  
+  <h1>Login</h1>
+  <hr>
+  <br>
+  <form #form="ngForm" (ngSubmit)="getLogin(form.value)">
+
+    <div class="form-floating mb-3 email">
+      <input type="email" name="email"  #email="ngModel" [ngModel]="email.value" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email</label>
+    </div>
+
+    <div class="form-floating password">
+      <input type="password" name="password" #password="ngModel" [ngModel]="password.value" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <a href="#" class="link-success">Esqueci minha senha.</a>
+
+    <div class="mb-3 form-check login-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Manter Logado</label>
+    </div>
+    <button class="btn btn-success login-btn"> Acessar </button>
+  </form>
+
+</div>

@@ -1,0 +1,35 @@
+:host{
+    .background_login {
+        background-image: url("../../../../assets/logistic.jpg");
+        background-repeat: no-repeat;
+        filter: brightness(20%);
+        background-size: cover;
+        padding: 50px;
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:2;
+        width:100%;
+        min-height:100%;
+        height:auto;
+    }
+
+    .login {
+        position:relative;
+        margin-top: 5%;
+        z-index:10;
+        background: #FFFFFFAA;
+        max-width: 600px;
+        border-radius: 2%;
+        padding: 30px 50px;
+    }
+    
+    .login-btn {
+        margin: 5px 0px;
+        width: 100%;
+    }
+
+    .login-check {
+        margin: 10px 0px;
+    }
+}
