@@ -5,7 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http'
+import { Interceptor } from './authentication/app.interceptor.module'
+
 import { LoginModule } from './views/login/login.module';
+import { ActivityModule } from './views/activity/activity.module';
+
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input'; 
 
 import {
   PERFECT_SCROLLBAR_CONFIG,
@@ -49,6 +55,7 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { TeamModule } from './views/team/team.module';
+import { CookieService } from 'ngx-cookie-service'
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -69,6 +76,10 @@ const APP_CONTAINERS = [
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
+    Interceptor,
+    ActivityModule,
+    MatFormFieldModule,
+    MatInputModule,
     
     AvatarModule,
     BreadcrumbModule,
@@ -107,7 +118,8 @@ const APP_CONTAINERS = [
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
     },
     IconSetService,
-    Title
+    Title,
+    CookieService
   ],
   bootstrap: [AppComponent],
 })

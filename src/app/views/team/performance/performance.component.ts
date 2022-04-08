@@ -1,13 +1,110 @@
 import { Component, OnInit } from '@angular/core';
+import { WorkersService } from 'src/app/services/workers.service';
+
+interface IUser{
+  name: string,
+  performace: number
+}
 
 @Component({
   selector: 'app-performance',
   templateUrl: './performance.component.html',
   styleUrls: ['./performance.component.scss']
 })
+
 export class PerformanceComponent implements OnInit {
+
+  constructor(
+    private workersService: WorkersService
+  ) { }
+
+  public users: IUser[] = []
   
   ngOnInit(): void {
+    // this.workersService.asyncUsersAndOrder().subscribe({
+    //   next: (res) => {
+    //     //console.log(res)
+
+    //     res.workers.forEach( (result ) => {
+    //       this.users.push({
+    //               name: result.name,
+    //               performace: 50
+    //       })
+    //     })
+    //     var userNames = this.users.map(user => user.name)
+
+    //     console.log(userNames)
+
+    //     this.chartDoughnutData = {
+    //       labels: userNames,
+    //       datasets: [
+    //         {
+    //           backgroundColor: ['#41B883','#00D8FF', '#DD1B16'],
+    //           data: [40, 60]
+    //         }
+    //       ]
+    //     }
+
+    //     this.chartPieData = {
+    //       labels: ['Pendente', 'Conclude', ],
+    //       datasets: [
+    //         {
+    //           data: [300, 50],
+    //           backgroundColor: ['#FF2521', '#41B883', '#FFCE56'],
+    //           hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+    //         }
+    //       ]
+    //     };
+
+    //     //localStorage.setItem('ResponseWorkers', JSON.stringify(res))
+    //   },
+    //   error: (err) => console.error(err)
+    // })
+
+    this.workersService.asyncWorkersStatistics().subscribe({
+      next: (res) => {
+        var total = 0
+        var totalConcluded = 0
+        res.users.forEach( (result ) => { 
+          total += result.countItem
+          totalConcluded += result.itemConcluded
+        })
+        res.users.forEach( (result ) => {
+          this.users.push({
+                  name: result.name,
+                  performace: (result.countItem / total) * 100
+          })
+        })
+        var userNames = this.users.map(user => user.name)
+        var userPerformace = this.users.map(user => user.performace)
+
+        console.log(userNames)
+
+        this.chartDoughnutData = {
+          labels: userNames,
+          datasets: [
+            {
+              backgroundColor: ['#41B883','#00D8FF', '#DD1B16'],
+              data: userPerformace
+            }
+          ]
+        }
+
+        this.chartPieData = {
+          labels: ['Pendente', 'Conclude', ],
+          datasets: [
+            {
+              data: [total-totalConcluded, totalConcluded],
+              backgroundColor: ['#FF2521', '#41B883', '#FFCE56'],
+              hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+            }
+          ]
+        };
+
+        //localStorage.setItem('ResponseWorkers', JSON.stringify(res))
+      },
+      error: (err) => console.error(err)
+    })
   }
 
   months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -22,10 +119,6 @@ export class PerformanceComponent implements OnInit {
       }
     ]
   };
-
-  // chartBarOptions = {
-  //   maintainAspectRatio: false,
-  // };
 
   chartLineData = {
     labels: [...this.months].slice(0, 7),
@@ -63,13 +156,6 @@ export class PerformanceComponent implements OnInit {
     ]
   };
 
-  // chartDoughnutOptions = {
-  //   aspectRatio: 1,
-  //   responsive: true,
-  //   maintainAspectRatio: false,
-  //   radius: '100%'
-  // };
-
   chartPieData = {
     labels: ['Red', 'Green', 'Yellow'],
     datasets: [
@@ -80,13 +166,6 @@ export class PerformanceComponent implements OnInit {
       }
     ]
   };
-
-  // chartPieOptions = {
-  //   aspectRatio: 1,
-  //   responsive: true,
-  //   maintainAspectRatio: false,
-  //   radius: '100%'
-  // };
 
   chartPolarAreaData = {
     labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
@@ -125,12 +204,6 @@ export class PerformanceComponent implements OnInit {
       }
     ]
   };
-
-  // chartRadarOptions = {
-  //   aspectRatio: 1.5,
-  //   responsive: true,
-  //   maintainAspectRatio: false,
-  // };
 
   get randomData() {
     return Math.round(Math.random() * 100);

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
-import { RequestLogin } from 'src/app/models/request-login';
+import { RequestLogin } from 'src/app/models/request/request-login';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginServiceService: LoginServiceService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private cookie: CookieService
     ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
           if(res.status){
             console.log(res.user)
             localStorage.setItem('userGA', JSON.stringify(res.user))
+            this.cookie.set('userGA', JSON.stringify(res.user))
             this.router.navigate(['logistica'], { relativeTo: this.route });
           } else {
             alert(res.info)

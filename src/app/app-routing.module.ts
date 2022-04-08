@@ -33,6 +33,11 @@ const routes: Routes = [
           import('./views/team/team.module').then((m) => m.TeamModule)
       },
       {
+        path: 'activity',
+        loadChildren: () =>
+          import('./views/activity/activity.module').then((m) => m.ActivityModule)
+      },
+      {
         path: 'charts',
         loadChildren: () =>
           import('./views/charts/charts.module').then((m) => m.ChartsModule)

@@ -14,7 +14,6 @@ export const navItems: INavData[] = [
     name: 'Operadores',
     url: '/team/workers',
     iconComponent: { name: 'cil-people' }
-    
   },
   {
     name: 'Desempenho',
@@ -27,6 +26,15 @@ export const navItems: INavData[] = [
   //   linkProps: { fragment: 'someAnchor' },
   //   iconComponent: { name: 'cilChart' }
   // },
+  {
+    name: 'Atividades',
+    title: true
+  },
+  {
+    name: 'Cadastrar Usuário',
+    url: '/activity/create-user',
+    iconComponent: { name: 'cilSmilePlus' }
+  },
   {
     name: 'Components',
     title: true

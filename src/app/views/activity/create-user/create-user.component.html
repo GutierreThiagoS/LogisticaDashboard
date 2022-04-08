@@ -1,0 +1,88 @@
+<c-card class="mb-4">
+    <c-card-header>
+      <strong>Cadastrar Usuário</strong>
+    </c-card-header>
+    <c-card-body>
+
+        <!-- <form (submit)="$event.preventDefault()">
+            <mat-form-field  appearance="fill">
+              <mat-label>First name</mat-label>
+              <input matInput #first>
+              <mat-hint *ngIf="firstNameAutofilled">Autofilled!</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Last name</mat-label>
+              <input matInput #last>
+              <mat-hint *ngIf="lastNameAutofilled">Autofilled!</mat-hint>
+            </mat-form-field>
+            <button mat-raised-button>Submit</button>
+          </form>
+
+          
+        <mat-form-field appearance="outline">
+            <mat-label>Outline form field</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+           -->
+
+        <div class="formflex formCreate">
+            
+            <span class="input-group-text" id="basic-addon1">#</span>
+        
+            <div cFormFloating >
+                <input 
+                    cFormControl
+                    id="floatingInputGrid"
+                    placeholder="Nome"
+                    type="name"/>
+                <label cLabel for="floatingInputGrid">Digite Seu Nome</label>
+            </div>
+
+        </div>
+
+        <div class="formflex formCreate"> 
+            <span class="input-group-text" id="basic-addon1">@</span>
+
+            <div cFormFloating>
+                <input
+                cFormControl
+                id="floatingInputGrid"
+                placeholder="name@example.com"
+                type="email"/>
+                <label cLabel for="floatingInputGrid">Digite Sua Email </label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="formflex formCreate"> 
+            <span class="input-group-text" id="basic-addon1">***</span>
+
+            <div cFormFloating>
+                
+                <input
+                cFormControl
+                id="floatingInputGrid"
+                placeholder="name@example.com"
+                type="email"/>
+                <label cLabel for="floatingInputGrid">Digite Sua Senha</label>
+            </div>
+        </div>
+
+        <div class="formflex formCreate"> 
+            <span class="input-group-text" id="basic-addon1">***</span>
+
+            <div cFormFloating>
+                <input
+                cFormControl
+                id="floatingInputGrid"
+                placeholder="name@example.com"
+                type="email"/>
+                <label cLabel for="floatingInputGrid">Confirme a Senha</label>
+            </div>
+        </div>
+
+    </c-card-body>
+</c-card>

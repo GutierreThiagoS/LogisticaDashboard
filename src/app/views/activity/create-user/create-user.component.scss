@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+.formCreate {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    input{
+        background-color: azure;
+    }
+}
+
+.formflex {
+    display: flex;
+}
+
+#floatingInputGrid {
+    min-width: 500px;
+}
+
+.tamanho {
+    width: 50px;
+    height: auto;
+}
+
+span {
+    min-width: 45px;
+}
+
+mat-form-field {
+    margin-right: 12px;
+}

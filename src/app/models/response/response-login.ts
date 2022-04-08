@@ -1,4 +1,4 @@
-import { UserGa } from "./user-ga";
+import { UserGa } from "../user-ga";
 
 export interface ResponseLogin {
     user: UserGa,
