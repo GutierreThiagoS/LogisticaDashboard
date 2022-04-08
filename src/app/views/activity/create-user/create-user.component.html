@@ -17,17 +17,42 @@
             </mat-form-field>
             <button mat-raised-button>Submit</button>
           </form>
-
+ -->
           
-        <mat-form-field appearance="outline">
-            <mat-label>Outline form field</mat-label>
+        <mat-form-field class="matFormInput" appearance="outline">
+            <mat-label>Digite o Nome</mat-label>
             <input matInput placeholder="Placeholder">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-hint>Hint</mat-hint>
+            <mat-icon matPrefix>person</mat-icon>
+            <mat-hint>Error está vazio</mat-hint>
         </mat-form-field>
-           -->
 
-        <div class="formflex formCreate">
+
+        <mat-form-field class="matFormInput" appearance="outline">
+            <mat-label>Digite o Email</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-hint>Error está vazio</mat-hint>
+        </mat-form-field>
+
+
+        <mat-form-field class="matFormInput" appearance="outline">
+            <mat-label>Digite sua Senha</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matPrefix>lock</mat-icon>
+            <mat-hint>Error está vazio</mat-hint>
+        </mat-form-field>
+
+
+        <mat-form-field class="matFormInput" appearance="outline">
+            <mat-label>Confirme sua Senha</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matPrefix>password</mat-icon>
+            <mat-hint>Error está vazio</mat-hint>
+        </mat-form-field>
+
+        
+
+        <!-- <div class="formflex formCreate">
             
             <span class="input-group-text" id="basic-addon1">#</span>
         
@@ -82,7 +107,7 @@
                 type="email"/>
                 <label cLabel for="floatingInputGrid">Confirme a Senha</label>
             </div>
-        </div>
+        </div> -->
 
     </c-card-body>
 </c-card>
