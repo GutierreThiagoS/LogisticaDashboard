@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CreateUserComponent } from './create-user/create-user.component';
+import { CreateOrderComponent } from './create-order/create-order.component';
 
 import { ActivityRoutingModule } from './activity.routing.module';
 
@@ -24,10 +25,13 @@ import {
   ListGroupModule,
   SharedModule
 } from '@coreui/angular';
+import { InsertItemOrderComponent } from './insert-item-order/insert-item-order.component';
 
 @NgModule({
   declarations: [
-    CreateUserComponent
+    CreateUserComponent,
+    CreateOrderComponent,
+    InsertItemOrderComponent
   ],
   imports: [
     CommonModule,

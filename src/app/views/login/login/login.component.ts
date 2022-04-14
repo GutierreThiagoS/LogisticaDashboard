@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           if(res.status){
             console.log(res.user)
             localStorage.setItem('userGA', JSON.stringify(res.user))
-            this.cookie.set('userGA', JSON.stringify(res.user))
+            //this.cookie.set('userGA', JSON.stringify(res.user))
             this.router.navigate(['logistica'], { relativeTo: this.route });
           } else {
             alert(res.info)

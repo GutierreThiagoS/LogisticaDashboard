@@ -1,0 +1,126 @@
+<c-card class="mb-4 " >
+    <c-card-header>
+      <strong>Criar Pedido</strong>
+    </c-card-header>
+    <c-card-body>
+
+        <select [(ngModel)]="order_id" class="form-select" aria-label="Selecione o Operador">
+            <option value="" selected>Selecione o Pedido</option>
+            <option *ngFor="let item of orders; let i=index" [value]="item.id">{{item.email}}</option>
+        </select>
+        <p *ngIf="hintOrderIdError">Escolha um Operador!</p>
+
+        <mat-form-field class="matFormInput" appearance="outline">
+            <mat-label>Descrição do produto</mat-label>
+            <input type="text" [(ngModel)]="description" matInput placeholder="texto">
+            <mat-icon matPrefix>font_download</mat-icon>
+            <!-- <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint> -->
+        </mat-form-field>
+
+        <div style="display: flex;">
+
+            <mat-form-field class="matFormInput formMin" appearance="outline">
+                <mat-label>Rua</mat-label>
+                <input type="number" [(ngModel)]="street" matInput placeholder="Rua">
+                <mat-icon matPrefix>grid_on</mat-icon>
+                <!-- <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint> -->
+            </mat-form-field>
+
+            <mat-form-field class="matFormInput formMin" appearance="outline">
+                <mat-label>Modulo</mat-label>
+                <input type="number" step="01" [(ngModel)]="module" matInput placeholder="Modulo">
+                <mat-icon matPrefix>view_module</mat-icon>
+                <!-- <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint> -->
+            </mat-form-field>
+
+            </div>
+            <div style="display: flex;">
+
+            <mat-form-field class="matFormInput formMin" appearance="outline">
+                <mat-label>Altura</mat-label>
+                <input type="number" [(ngModel)]="height" matInput placeholder="Altura">
+                <mat-icon matPrefix>swap_vert</mat-icon>
+                <!-- <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint> -->
+            </mat-form-field>
+
+            <mat-form-field class="matFormInput formMin" appearance="outline">
+                <mat-label>Posição</mat-label>
+                <input type="number" [(ngModel)]="position" matInput placeholder="Posição">
+                <mat-icon matPrefix>swap_horiz</mat-icon>
+                <!-- <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint> -->
+            </mat-form-field>
+                        
+        </div>
+        <div style="display: flex;">
+
+        <mat-form-field class="matFormInput formMin" appearance="outline">
+            <mat-label>Quantidade</mat-label>
+            <input type="text" [(ngModel)]="quantity" matInput placeholder="Qauntidade">
+            <mat-icon matPrefix>exposure_plus_1</mat-icon>
+            <!-- <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint> -->
+        </mat-form-field>
+
+        <select [(ngModel)]="unity" class="form-select formMin" aria-label="Valor Unitario">
+            <option value="UN" selected>UN</option>
+            <option value="CX" >CX</option>
+            <option value="KI" >KI</option>
+        </select>
+
+    </div>
+    <hr>
+    <p>Etiqueta</p>
+    <div style="display: flex;">
+
+        <mat-form-field class="matFormInput formMin" appearance="outline">
+            <mat-label>Codigo da Etiqueta</mat-label>
+            <input type="text" [(ngModel)]="codeTag" matInput placeholder="Tag">
+            <mat-icon matPrefix>person</mat-icon>
+            <!-- <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint> -->
+        </mat-form-field>
+
+        <select [(ngModel)]="colorTag" class="form-select formMin" aria-label="Selecione Cor da Etiqueta">
+            <option value="" selected>Cor da Etiqueta</option>
+            <option value="verde" selected>Verde</option>
+            <option value="amarelo" selected>Amarelo</option>
+            <option value="azul" selected>Azul</option>
+            <option value="vermelho" selected>Vermelho</option>
+        </select>
+        <p *ngIf="hintOrderIdError">Escolha uma COr!</p>
+        
+    </div>
+    <hr>
+    <div style="display: flex;">
+
+        <mat-form-field class="matFormInput formMin" appearance="outline">
+            <mat-label>Codigo de Barra</mat-label>
+            <input type="text" [(ngModel)]="ean" matInput placeholder="Ean">
+            <mat-icon matPrefix>code</mat-icon>
+            <!-- <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint> -->
+        </mat-form-field>
+
+        <mat-form-field class="matFormInput formMin" appearance="outline">
+            <mat-label>Preço</mat-label>
+            <input type="number" step="0.00" [(ngModel)]="price" matInput placeholder="Preço">
+            <mat-icon matPrefix>monetization_on</mat-icon>
+            <!-- <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint> -->
+        </mat-form-field>
+    </div>
+        <button type="button" class="btn btn-success" (click)="insertItemOrder()">Inserir Item</button>
+    </c-card-body>
+</c-card>
+
+
+<!-- "order_id": 2, 
+    "product_id": "1", 
+    "description_product": "CREME DENTAL COLGATE TOTAL PROFISSIONAL 70G DAILY REPAIR", 
+    "street": "05", 
+    "module": "07", 
+    "height": "08",
+    "position": "11", 
+    "quantity_lack": 5,
+    "quantity_total": 5,
+    "unity": "UN",
+    "ean": "7891024030981", 
+    "color_tag": "azul",
+    "code_tag": "150",
+    "price": 10.33 -->

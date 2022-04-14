@@ -14,15 +14,7 @@
         height:auto;
     }
 
-    .login {
-        position:relative;
-        margin-top: 5%;
-        z-index:10;
-        background: #FFFFFFAA;
-        max-width: 600px;
-        border-radius: 2%;
-        padding: 30px 50px;
-    }
+    
     
     .login-btn {
         margin: 5px 0px;
@@ -31,5 +23,35 @@
 
     .login-check {
         margin: 10px 0px;
+    }
+}
+
+@media screen and (max-width: 650px) { 
+    .login {
+        position:relative;
+        margin-top: 25%;
+        z-index:10;
+        background: #FFFFFFAA;
+        width: 87%;
+        border-radius: 2%;
+        padding: 5% 5%;
+    }
+    .form-floating {
+        width: 95%;
+    }
+}
+
+@media screen and (min-width: 651px) { 
+    .login {
+        position:relative;
+        margin-top: 10%;
+        z-index:10;
+        background: #FFFFFFAA;
+        max-width: 50%;
+        border-radius: 2%;
+        padding: 30px 50px;
+    }
+    .form-floating {
+        width: 95%;
     }
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,6 +12,13 @@ import { ActivityModule } from './views/activity/activity.module';
 
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input'; 
+
+import {LOCALE_ID} from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
+
+registerLocaleData(localePt, 'pt');
+
 
 import {
   PERFECT_SCROLLBAR_CONFIG,
@@ -55,7 +62,7 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { TeamModule } from './views/team/team.module';
-import { CookieService } from 'ngx-cookie-service'
+import { CookieService } from 'ngx-cookie-service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -119,9 +126,16 @@ const APP_CONTAINERS = [
     },
     IconSetService,
     Title,
-    CookieService
+    CookieService,
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR'
+    }
   ],
   bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA 
+  ]
 })
 export class AppModule {
 }

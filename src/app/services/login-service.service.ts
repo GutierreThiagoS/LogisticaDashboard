@@ -12,16 +12,6 @@ export class LoginServiceService {
 
   private host  = 'http://192.168.203.119:9191/orderpicking/gaLogin'
 
-  // EndPoints
-  private endPointLogin: string = '/orderpicking/login'
-
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Accept': '*/*'
-    })
-  };
-
   constructor(
     private http: HttpClient
   ) { }
@@ -37,6 +27,7 @@ export class LoginServiceService {
         tap( // Log the result or error
           {
             next: (data: any) => {
+              console.log("data.user")
               console.log(data.user)
               return data
             },

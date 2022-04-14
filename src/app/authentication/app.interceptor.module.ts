@@ -8,7 +8,7 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        var _user = JSON.parse(localStorage.getItem("userGA") || '');
+        var _user = JSON.parse(localStorage.getItem("userGA") || '[]');
 
         const dubReq = req.clone({
             headers: req.headers.set('authorization', (_user && _user.token) ? 'Bearer ' + _user.token: '')

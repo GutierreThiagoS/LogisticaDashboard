@@ -36,6 +36,16 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cilSmilePlus' }
   },
   {
+    name: 'Criar Pedido',
+    url: '/activity/create-order',
+    iconComponent: { name: 'cil-clipboard' }
+  },
+  {
+    name: 'Inserir Item no Pedido',
+    url: '/activity/insert-item-order',
+    iconComponent: { name: 'cil-playlist-add' }
+  },
+  {
     name: 'Components',
     title: true
   },

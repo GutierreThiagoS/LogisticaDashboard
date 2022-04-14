@@ -1,113 +1,46 @@
-<c-card class="mb-4">
+<c-card class="mb-4" >
     <c-card-header>
       <strong>Cadastrar Usuário</strong>
     </c-card-header>
     <c-card-body>
-
-        <!-- <form (submit)="$event.preventDefault()">
-            <mat-form-field  appearance="fill">
-              <mat-label>First name</mat-label>
-              <input matInput #first>
-              <mat-hint *ngIf="firstNameAutofilled">Autofilled!</mat-hint>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-              <mat-label>Last name</mat-label>
-              <input matInput #last>
-              <mat-hint *ngIf="lastNameAutofilled">Autofilled!</mat-hint>
-            </mat-form-field>
-            <button mat-raised-button>Submit</button>
-          </form>
- -->
-          
+        
         <mat-form-field class="matFormInput" appearance="outline">
             <mat-label>Digite o Nome</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input type="text" [(ngModel)]="register.name" matInput placeholder="Nome">
             <mat-icon matPrefix>person</mat-icon>
-            <mat-hint>Error está vazio</mat-hint>
+            <mat-hint *ngIf="hintNameError">Campo Inválido!</mat-hint>
         </mat-form-field>
 
 
-        <mat-form-field class="matFormInput" appearance="outline">
+        <mat-form-field class="matFormInput" appearance="outline" >
             <mat-label>Digite o Email</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input type="email" [(ngModel)]="register.email" matInput placeholder="Email" autoComplete='off'>
             <mat-icon matPrefix>email</mat-icon>
-            <mat-hint>Error está vazio</mat-hint>
+            <mat-hint *ngIf="hintEmailError">Campo Inválido!</mat-hint>
         </mat-form-field>
 
 
         <mat-form-field class="matFormInput" appearance="outline">
             <mat-label>Digite sua Senha</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input type="password" [(ngModel)]="register.password" matInput placeholder="Senha" autocomplete="new-password">
             <mat-icon matPrefix>lock</mat-icon>
-            <mat-hint>Error está vazio</mat-hint>
+            <mat-hint *ngIf="hintPasswordError">Campo Inválido!</mat-hint>
         </mat-form-field>
 
 
         <mat-form-field class="matFormInput" appearance="outline">
             <mat-label>Confirme sua Senha</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input type="password" [(ngModel)]="confirmPassword" matInput placeholder="Confirmação" >
             <mat-icon matPrefix>password</mat-icon>
-            <mat-hint>Error está vazio</mat-hint>
+            <mat-hint *ngIf="hintConfirmError" >{{confirmHint}}</mat-hint>
         </mat-form-field>
 
-        
+        <select [(ngModel)]="register.role" class="form-select" aria-label="Selecione o Posto">
+            <option value="0" selected>Operador</option>
+            <option value="1" >Gerente</option>
+        </select>
 
-        <!-- <div class="formflex formCreate">
-            
-            <span class="input-group-text" id="basic-addon1">#</span>
-        
-            <div cFormFloating >
-                <input 
-                    cFormControl
-                    id="floatingInputGrid"
-                    placeholder="Nome"
-                    type="name"/>
-                <label cLabel for="floatingInputGrid">Digite Seu Nome</label>
-            </div>
-
-        </div>
-
-        <div class="formflex formCreate"> 
-            <span class="input-group-text" id="basic-addon1">@</span>
-
-            <div cFormFloating>
-                <input
-                cFormControl
-                id="floatingInputGrid"
-                placeholder="name@example.com"
-                type="email"/>
-                <label cLabel for="floatingInputGrid">Digite Sua Email </label>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="formflex formCreate"> 
-            <span class="input-group-text" id="basic-addon1">***</span>
-
-            <div cFormFloating>
-                
-                <input
-                cFormControl
-                id="floatingInputGrid"
-                placeholder="name@example.com"
-                type="email"/>
-                <label cLabel for="floatingInputGrid">Digite Sua Senha</label>
-            </div>
-        </div>
-
-        <div class="formflex formCreate"> 
-            <span class="input-group-text" id="basic-addon1">***</span>
-
-            <div cFormFloating>
-                <input
-                cFormControl
-                id="floatingInputGrid"
-                placeholder="name@example.com"
-                type="email"/>
-                <label cLabel for="floatingInputGrid">Confirme a Senha</label>
-            </div>
-        </div> -->
+        <button type="button" class="btn btn-success" (click)="registerWorkers()" >Cadastrar</button>
 
     </c-card-body>
 </c-card>

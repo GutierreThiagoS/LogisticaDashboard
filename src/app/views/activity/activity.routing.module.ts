@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CreateOrderComponent } from './create-order/create-order.component';
 
 import { CreateUserComponent } from './create-user/create-user.component';
+import { InsertItemOrderComponent } from './insert-item-order/insert-item-order.component';
 
 const routes: Routes = [
 
@@ -24,10 +26,17 @@ const routes: Routes = [
         },
       },
       {
-        path: 'create-user',
-        component: CreateUserComponent,
+        path: 'create-order',
+        component: CreateOrderComponent,
         data: {
-          title: 'Create User',
+          title: 'Create Order',
+        },
+      },
+      {
+        path: 'insert-item-order',
+        component: InsertItemOrderComponent,
+        data: {
+          title: 'Insert Item Order',
         },
       },
     ],

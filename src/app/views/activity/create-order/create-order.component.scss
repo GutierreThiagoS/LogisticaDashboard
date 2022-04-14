@@ -6,13 +6,22 @@
     }
 }
 
+p {
+    margin: 0%;
+    padding: 0%;
+    color: red;
+    font-size: small;
+    margin-left: 8%;
+}
+
 .matFormInput{
     display: block;
     width: auto;
     margin-left: 5%;
-    margin-Top: 28px;
-    width: 90%;
+    margin-bottom: 28px;
+    margin-top: 15px;
     max-height: 50px;
+    width: 90%;
     margin-right: 12px;
     mat-icon {
         margin-right: 5px;
@@ -33,6 +42,6 @@ button{
 select {
     display: flexbox;
     width: 90%;
-    margin-Top: 30px;
+    margin-top: 20px;
     margin-left: 5%;
 }
